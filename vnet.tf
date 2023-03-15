@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg" {
-  name     = "example-resources"
+  name     = "rg"
   location = var.location
 }
 
@@ -24,7 +24,7 @@ resource "azurerm_network_interface" "opnsense-nic" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.rg.id
+    subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
   }
 }

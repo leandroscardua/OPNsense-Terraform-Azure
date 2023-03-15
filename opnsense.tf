@@ -3,7 +3,9 @@ resource "azurerm_linux_virtual_machine" "opnsense" {
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   size                = "Standard_F2"
-  admin_username      = "adminuser"
+  admin_username      = var.opn_user_name
+  admin_password      = var.opn_user_password
+  disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.opnsense-nic.id,
   ]
